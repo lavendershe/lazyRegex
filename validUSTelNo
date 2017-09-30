@@ -1,0 +1,25 @@
+//freeCodeCamp practice
+var validUSPhone = function(str) {
+  var rx = /^1?(\s?)+(\s?[0-9]{3}\s?|\([0-9]{3}\)|-?[0-9]{3}-|[0-9]{3})(\s?)+([0-9]{3})(-?)(\s?)+([0-9]{4})$/;
+  var regex = new RegExp(rx, 'gm');
+  var result = str.match(regex);
+  if(result){
+    return true;
+  }else{
+    return false;
+  }
+
+}
+
+
+
+console.log(validUSPhone("555-555-5555"));//true
+console.log(validUSPhone("1 555-555-5555"));//true
+console.log(validUSPhone("1 (555) 555-5555"));//true
+console.log(validUSPhone("5555555555"));//true
+console.log(validUSPhone("(555)555-5555"));//true
+console.log(validUSPhone("1(555)555-5555"));//true
+console.log(validUSPhone("1 555)555-5555"));//false
+console.log(validUSPhone("123**&!!asdf#"));//false
+console.log(validUSPhone("2 (757) 622-7382"));//false
+console.log(validUSPhone("0 (757) 622-7382"));//false
